@@ -7,7 +7,7 @@ resource "aws_launch_template" "web_lt" {
   image_id               = data.aws_ami.amazon_linux_latest.id
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.web-sg.id]
-  user_data              = filebase64("user_data.sh")
+  user_data              = filebase64("../web/user_data.sh")
 }
 
 resource "aws_autoscaling_group" "web" {
